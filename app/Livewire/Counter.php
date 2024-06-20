@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Tag;
 
 class Counter extends Component
 {
@@ -20,6 +21,7 @@ class Counter extends Component
     
     public function render()
     {
-        return view('livewire.counter');
+        $tag = Tag::find(1);
+        return view('livewire.counter', ['tag' => $tag]);
     }
 }
