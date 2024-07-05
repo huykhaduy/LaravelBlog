@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->datetime('posted_at')->nullable();
             $table->json('title');
-            $table->json('description')->nullable();
+            $table->json('content')->nullable();
             
             $table->timestamps();
         });

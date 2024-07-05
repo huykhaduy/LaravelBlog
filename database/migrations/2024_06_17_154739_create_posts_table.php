@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_active')->default(false);
             $table->datetime('posted_at')->nullable();
             $table->string('post_type');
             $table->integer('position')->default(0);
@@ -31,13 +32,14 @@ return new class extends Migration
             $table->string('locale');
             $table->string('title');
             $table->mediumText('content');
+            $table->string('slug');
             $table->timestamps();
             $table->softDeletes();
 
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
 
-            $table->unique(['post_id', 'locale']);
+            $table->unique(['post_id', 'locale', 'slug']);
 
             // Indexes columns
             $table->index('locale');
