@@ -13,7 +13,7 @@ return [
     | This will allow your users to receive real-time notifications.
     |
     */
-    // Xin chào đây là test
+
     'broadcasting' => [
 
         // 'echo' => [
